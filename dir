@@ -1,0 +1,18 @@
+#!/bin/bash
+mkdir Desktop
+mkdir Documents
+mkdir Downloads
+mkdir Pictures
+mkdir Videos
+
+for i in {1..5}
+do
+  mkdir "folder$i"
+done
+
+while read username
+do
+sudo mkdir "/home/$username"
+sudo useradd -d "/home/$username" -m "$username"
+sudo adduser "$username" sudo
+done < "uporabniki"
